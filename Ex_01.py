@@ -1,55 +1,62 @@
-# Área da randomização
 from random import randint
-from time import sleep
+from tkinter import *
 
-print('Vamos jogar JO KEN PÔ!')
-print('Iniciando o jogo!')
-#sleep(2)
-
-opcoes = ('PEDRA', 'PAPEL', 'TESOURA')
-while True:
+def pedra():
+    jogadorp = 'PEDRA'
+    opcoes = ('PEDRA', 'PAPEL', 'TESOURA')
     randomizador = randint(0, 2)
     computador = (opcoes[randomizador])
-    print('PEDRA, PAPEL OU TESOURA?')
-    jogador = input('Resposta: ').strip().upper()
-
-    if jogador == ('PEDRA') and computador == ('PEDRA'):
-        print(f'Computador escolheu {computador}.')
+    print(f'O computador jogou {computador}')
+    if jogadorp == ('PEDRA') and computador == ('PEDRA'):
         print('EMPATE!!!')
-    elif jogador == ('PEDRA') and computador == ('PAPEL'):
-        print(f'Computador escolheu {computador}.')
+    elif jogadorp == ('PEDRA') and computador == ('PAPEL'):
         print('Computador venceu!')
-    elif jogador == ('PEDRA') and computador == ('TESOURA'):
-        print(f'Computador escolheu {computador}.')
+    elif jogadorp == ('PEDRA') and computador == ('TESOURA'):
         print('Você venceu!')
 
-
-
-    #Bloco "PAPEL"
-    elif jogador == ('PAPEL') and computador == ('PAPEL'):
-        print(f'Computador escolheu {computador}.')
+def papel():
+    jogadorpa = 'PAPEL'
+    opcoes = ('PEDRA', 'PAPEL', 'TESOURA')
+    randomizador = randint(0, 2)
+    computador = (opcoes[randomizador])
+    print(f'O computador jogou {computador}')
+    if jogadorpa == ('PAPEL') and computador == ('PAPEL'):
         print('EMPATE!!!')
-    elif jogador == ('PAPEL') and computador == ('TESOURA'):
-        print(f'Computador escolheu {computador}.')
-        print('Computador venceu!')
-    elif jogador == ('PAPEL') and computador == ('PEDRA'):
-        print(f'Computador escolheu {computador}.')
-        print('Você venceu!')
+    elif jogadorpa == ('PAPEL') and computador == ('PEDRA'):
+        print('VOCÊ venceu!')
+    elif jogadorpa == ('PAPEL') and computador == ('TESOURA'):
+        print('COMPUTADOR venceu!')
+
+def tesoura():
+    jogadort = 'TESOURA'
+    opcoes = ('PEDRA', 'PAPEL', 'TESOURA')
+    randomizador = randint(0, 2)
+    computador = (opcoes[randomizador])
+    print(f'O computador jogou {computador}')
+    if jogadort == ('TESOURA') and computador == ('TESOURA'):
+        print ('EMPATE!!!')
+    if jogadort == ('TESOURA') and computador == ('PEDRA'):
+        print('COMPUTADOR venceu!')
+    if jogadort == ('TESOURA') and computador == ('PAPEL'):
+        print('VOCÊ venceu!')
+
+#interface
+
+janela = Tk()
+janela.title('JOKENPO')#titulo da janela
+janela.geometry('250x350')#tamanho da janela
+
+texto_orientacao = Label(janela, text='PEDRA, PAPEL OU TESOURA?')#Label precisa saber de onde ele é, e o que será escrito.
+texto_orientacao.grid(column=0, row=0, padx=20, pady=20)
+
+botaopedra = Button(janela, text='PEDRA',padx=22, command=pedra)
+botaopedra.grid(column=0,padx=10, pady=10, row=1)
+
+botaopapel = Button(janela, text='PAPEL', padx=22, command=papel)
+botaopapel.grid(column=0, row=2,padx=10, pady=10)
+
+botaotes = Button(janela, text='TESOURA', command=tesoura)
+botaotes.grid(column=0, row=3, padx=10, pady=10)
 
 
-    #Bloco "TESOURA"
-    elif jogador == ('TESOURA') and computador == ('TESOURA'):
-        print(f'Computador escolheu {computador}.')
-        print('EMPATE!!!')
-    elif jogador == ('TESOURA') and computador == ('PEDRA'):
-        print(f'Computador escolheu {computador}.')
-        print('Computador venceu!')
-    elif jogador == ('TESOURA') and computador == ('PAPEL'):
-        print(f'Computador escolheu {computador}.')
-        print('Você venceu!')
-
-    repete = input('Deseja continuar? ').strip().upper()
-    if repete == 'N':
-        break
-
-print('Jogo finalizado')
+janela.mainloop()
