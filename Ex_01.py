@@ -1,31 +1,35 @@
 from random import randint
 from tkinter import *
+from tkinter import messagebox
+from sys import exit
 
 def pedra():
     jogadorp = 'PEDRA'
     opcoes = ('PEDRA', 'PAPEL', 'TESOURA')
     randomizador = randint(0, 2)
     computador = (opcoes[randomizador])
-    print(f'O computador jogou {computador}')
     if jogadorp == ('PEDRA') and computador == ('PEDRA'):
-        print('EMPATE!!!')
+        message = (f'EMPATE!!!\nO Computador também escolheu {computador}')
     elif jogadorp == ('PEDRA') and computador == ('PAPEL'):
-        print('Computador venceu!')
+        message=(f'COMUTADOR venceu!\nO COMPUTADOR escolheu {computador}')
     elif jogadorp == ('PEDRA') and computador == ('TESOURA'):
-        print('Você venceu!')
+        message=(f'VOCÊ venceu!\nO computador escolheu {computador}')
+    messagebox.showinfo(f'Resultado', message)
 
 def papel():
     jogadorpa = 'PAPEL'
     opcoes = ('PEDRA', 'PAPEL', 'TESOURA')
     randomizador = randint(0, 2)
     computador = (opcoes[randomizador])
-    print(f'O computador jogou {computador}')
     if jogadorpa == ('PAPEL') and computador == ('PAPEL'):
-        print('EMPATE!!!')
+        message = (f'EMPATE!!!\nO computador escolheu {computador}')
     elif jogadorpa == ('PAPEL') and computador == ('PEDRA'):
-        print('VOCÊ venceu!')
+        message =(f'VOCÊ venceu!\nComputador escolheu {computador}')
     elif jogadorpa == ('PAPEL') and computador == ('TESOURA'):
-        print('COMPUTADOR venceu!')
+        message = (f'COMPUTADOR venceu!\nComputador escolheu {computador}')
+    messagebox.showinfo(f'Resultado', message)
+
+
 
 def tesoura():
     jogadort = 'TESOURA'
@@ -34,11 +38,14 @@ def tesoura():
     computador = (opcoes[randomizador])
     print(f'O computador jogou {computador}')
     if jogadort == ('TESOURA') and computador == ('TESOURA'):
-        print ('EMPATE!!!')
+        message= (f'EMPATE!!!\nO Computador também escolheu {computador}')
     if jogadort == ('TESOURA') and computador == ('PEDRA'):
-        print('COMPUTADOR venceu!')
+        message = (f'COMPUTADOR venceu!\nO computador escolheu {computador}')
     if jogadort == ('TESOURA') and computador == ('PAPEL'):
-        print('VOCÊ venceu!')
+        message = (f'VOCÊ venceu!\nComputador escolheu {computador}')
+
+    messagebox.showinfo('Resultado', message)
+
 
 #interface
 
