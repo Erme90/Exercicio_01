@@ -1,8 +1,8 @@
 from random import randint
 from tkinter import *
 from tkinter import messagebox
-from sys import exit
 
+#Esta função é para quando o jogadro escolhe PEDRA.
 def pedra():
     jogadorp = 'PEDRA'
     opcoes = ('PEDRA', 'PAPEL', 'TESOURA')
@@ -16,6 +16,7 @@ def pedra():
         message=(f'VOCÊ venceu!\nO computador escolheu {computador}')
     messagebox.showinfo(f'Resultado', message)
 
+#Esta função é para quando o jogador escolhe PAPEL.
 def papel():
     jogadorpa = 'PAPEL'
     opcoes = ('PEDRA', 'PAPEL', 'TESOURA')
@@ -30,7 +31,7 @@ def papel():
     messagebox.showinfo(f'Resultado', message)
 
 
-
+#Esta função é para quando o jogador escolhe TESOURA.
 def tesoura():
     jogadort = 'TESOURA'
     opcoes = ('PEDRA', 'PAPEL', 'TESOURA')
